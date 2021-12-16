@@ -1,0 +1,122 @@
+* {
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+			
+body {
+	font-family: Open Sans, sans-serif;
+	font-weight: 300;
+	color: #fff;
+	background-color: #000;
+}
+a:link, a:visited, a:active {
+	text-decoration: none;
+	color: #fff;
+}
+a:hover {
+	color: #000;
+}
+
+header {
+	display:flex;
+	justify-content:center;
+	align-items: baseline;
+	top: 5px;
+	z-index: 0;
+	width: calc(100% - 16px);
+	height: calc(100vh - 5px);
+	background-color: hsl(200, 15%, 20%);
+}
+
+#name, nav {
+	text-transform: lowercase;
+	text-align: center;
+	padding: 0.4rem 1.5rem;
+	height: 3rem;
+}
+
+#name {
+	flex: 1 1 400px;
+	font-weight: 400;
+	font-size: clamp(1.1rem, 2vw, 1.3rem);
+}
+nav {
+	flex: 1 1 500px;
+	font-size: clamp(1rem, 1.8vw, 1.2rem);
+}
+
+nav ul {
+	list-style-type: none;
+}
+
+nav ul li {
+	display:inline-block;
+	margin: 5px;
+}
+section, header {
+	margin: 0 auto;
+	position: sticky;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	box-shadow: 0px 0px 8px -3px black;
+}
+.anchor {position:absolute}
+
+h2 {
+	font-size: 1.1rem;
+	font-weight: 400;
+	padding: 0.7rem 1rem 0.8rem;	
+}
+
+#gohero {top: 5px}
+
+#intro {
+	top: calc(5px + 3rem);
+	z-index: 1;
+	width: calc(100% - 12px);
+	height: calc(100vh - 5px - 3rem);
+	background-color: hsl(200, 15%, 25%);
+}
+#gointro {top: calc(100vh - 10px - 3rem)}
+
+#stuff {
+	top: calc(5px + 6rem);
+	z-index: 2;
+	width: calc(100% - 8px);
+	height: calc(100vh - 5px - 6rem);
+	background-color: hsl(200, 15%, 30%);
+}
+#gostuff {top: calc(200vh - 15px - 9rem)}
+
+#contact {
+	top: calc(5px + 9rem);
+	z-index: 3;
+	width: calc(100% - 4px);
+	height: calc(100vh - 5px - 9rem);
+	background-color: hsl(200, 15%, 35%);
+}
+#gocontact {top: calc(300vh - 20px - 18rem)}
+
+.cardcontent {
+	height: calc(100% - 3.5rem);
+	width: 95%;
+	margin: 0 auto;
+	overflow: auto;
+}
+
+.cardcontent article {
+	width: 90%;
+	height: 200px;
+	background:dimgrey;
+	margin: 5px;
+}
+
+/* #sundries {
+	top: calc(5px + 12rem);
+	z-index: 4;
+	width: 100%;
+	height: calc(100vh - 5px - 12rem);
+	background-color: hsl(200, 15%, 40%);
+}
+#gosundries {top: calc(400vh - 25px - 27rem)} */
