@@ -1,49 +1,80 @@
+:root {
+
+	/* colours */
+	--background: hsl(200, 15%, 60%);
+	--text: hsl(200, 15%, 20%);
+	--links: hsl(200, 15%, 20%);
+	--hover: hsl(200, 15%, 40%);
+	--header: hsl(200, 15%, 85%);
+	--intro: hsl(200, 15%, 80%);
+	--stuff: hsl(200, 15%, 75%);
+	--contact: hsl(200, 15%, 70%);
+	--b2top: hsl(200, 15%, 65%);
+	
+	/* scaling */
+	--tabheight: clamp(30px, 5vw, 50px);
+	
+	/* fonts */
+	--normal: 300;
+	--heavy: 400;
+}
+
 * {
 	margin: 0;
 	border: 0;
 	padding: 0;
+	
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+html {
+	scroll-behavior: smooth;
 }
 			
 body {
-	font-family: Open Sans, sans-serif;
-	font-weight: 300;
-	color: #fff;
-	background-color: #000;
+	color: var(--text);
+	background-color: var(--background);
+	font-family: 'Work Sans', sans-serif;
+	font-weight: var(--normal);
 }
 a:link, a:visited, a:active {
 	text-decoration: none;
-	color: #fff;
+	font-weight: var(--heavy);
+	color: var(--links);
 }
 a:hover {
-	color: #000;
+	color: var(--hover);
 }
 
 header {
-	display:flex;
-	justify-content:center;
-	align-items: baseline;
+	position:fixed;
 	top: 5px;
 	z-index: 0;
-	width: calc(100% - 16px);
+	width: calc(100% - 10px);
 	height: calc(100vh - 5px);
-	background-color: hsl(200, 15%, 20%);
+	background-color: var(--header);
+	overflow: hidden;
 }
 
-#name, nav {
-	text-transform: lowercase;
-	text-align: center;
-	padding: 0.4rem 1.5rem;
-	height: 3rem;
+#topstrip {
+	display: flex;
+	justify-content: space-between;
+	width: calc(100% - 1.5rem);
+	margin: 0 auto;
+}
+
+#name, nav, section h2 {
+	line-height: calc(var(--tabheight) + 5px);
 }
 
 #name {
-	flex: 1 1 400px;
-	font-weight: 400;
-	font-size: clamp(1.1rem, 2vw, 1.3rem);
+	font-size: clamp(1.4rem, 3.5vw, 2.2rem);
 }
+
 nav {
-	flex: 1 1 500px;
-	font-size: clamp(1rem, 1.8vw, 1.2rem);
+	font-size: clamp(1.2rem, 3vw, 2rem);
+	text-align: right;
 }
 
 nav ul {
@@ -51,72 +82,167 @@ nav ul {
 }
 
 nav ul li {
-	display:inline-block;
-	margin: 5px;
+	display: inline-block;
+	margin: 0 5px;
 }
+
+#hero {
+	width: 90%;
+	height: 90%;
+	max-height: calc(100% - 6rem);
+	position: relative;
+	margin: 0 auto;
+}
+
+#hero p {
+	text-align: center;
+	margin: 2rem 1rem;
+	line-height: 50vh;
+}
+
 section, header {
 	margin: 0 auto;
 	position: sticky;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
-	box-shadow: 0px 0px 8px -3px black;
+	box-shadow: 1px -1px 5px -3px black;
 }
 .anchor {position:absolute}
 
-h2 {
-	font-size: 1.1rem;
-	font-weight: 400;
-	padding: 0.7rem 1rem 0.8rem;	
+section h2 {
+	display: block;
+	position: relative;
+	top: calc(-1 * var(--tabheight));
+	height: var(--tabheight);
+	width: 18%;
+	padding: 0 .5rem;
+	font-size: clamp(1.3rem, 3.25vw, 2.1rem);
+	text-transform: uppercase;
+	text-align: center;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	box-shadow: 1px -2px 5px -3px black;
 }
 
-#gohero {top: 5px}
-
-#intro {
-	top: calc(5px + 3rem);
-	z-index: 1;
-	width: calc(100% - 12px);
-	height: calc(100vh - 5px - 3rem);
-	background-color: hsl(200, 15%, 25%);
-}
-#gointro {top: calc(100vh - 10px - 3rem)}
-
-#stuff {
-	top: calc(5px + 6rem);
-	z-index: 2;
-	width: calc(100% - 8px);
-	height: calc(100vh - 5px - 6rem);
-	background-color: hsl(200, 15%, 30%);
-}
-#gostuff {top: calc(200vh - 15px - 9rem)}
-
-#contact {
-	top: calc(5px + 9rem);
-	z-index: 3;
-	width: calc(100% - 4px);
-	height: calc(100vh - 5px - 9rem);
-	background-color: hsl(200, 15%, 35%);
-}
-#gocontact {top: calc(300vh - 20px - 18rem)}
-
-.cardcontent {
-	height: calc(100% - 3.5rem);
-	width: 95%;
-	margin: 0 auto;
+article {
+	font-size: clamp(0.9rem, 3vw, 1.1rem);
+	height: calc(100vh - (2.5 * var(--tabheight)));
+	width: calc(95% - 1rem);
+	margin: calc(-0.5 * var(--tabheight)) auto;
 	overflow: auto;
 }
 
-.cardcontent article {
-	width: 90%;
-	height: 200px;
-	background:dimgrey;
-	margin: 5px;
+article p, article ul {
+	margin: 0.3rem auto 0.8rem;
+	max-width: 60ch;
 }
 
-/* #sundries {
-	top: calc(5px + 12rem);
-	z-index: 4;
-	width: 100%;
-	height: calc(100vh - 5px - 12rem);
-	background-color: hsl(200, 15%, 40%);
+article ul {
+	list-style-type: none;
+	text-align: center;
 }
-#gosundries {top: calc(400vh - 25px - 27rem)} */
+
+article ul li {
+	line-height: 2.5rem;
+}
+
+article p b {
+	margin: 1rem auto 1rem;
+	font-weight: var(--heavy);
+}
+
+article > a {
+	display: block;
+	margin: 0 auto;
+	max-width: 60ch;
+}
+
+a img {
+	max-width: 100%;
+}
+
+.backtotop {
+	position: absolute;
+	height: 2rem;
+	width: 2rem;
+	bottom: 1rem;
+	left: calc(50% - 1rem);
+	text-align: center;
+	font-size: 1.5rem;
+	font-weight: var(--normal);
+	line-height: 2rem;
+	border-radius: 50%;
+	background-color: var(--b2top);
+}
+.backtotop:hover {
+	background-color: var(--background);
+}
+
+#intro {
+	z-index: 1;
+	width: calc(100% - 8px);
+	background-color: var(--intro);
+	height: calc(100vh - 8px - var(--tabheight));
+	top: calc(var(--tabheight) + 8px);
+}
+#gointro {top: calc(100vh - 10px - var(--tabheight))}
+#intro h2 {
+	margin-inline-start: calc(46% - 2rem);
+	background-color: var(--intro);
+}
+#intro img {
+	display: block;
+	margin: 0 auto;
+	max-height: 30%;
+}
+
+#stuff {
+	z-index: 2;
+	width: calc(100% - 6px);
+	background-color: var(--stuff);
+	height: calc(100vh - 11px - var(--tabheight));
+	top: calc(var(--tabheight) + 11px);
+}
+#gostuff {top: calc(200vh - 22px - (2 * var(--tabheight)))}
+#stuff h2 {
+	margin-inline-start: calc(64% - 1.5rem);
+	background-color: var(--stuff);
+}
+
+#contact {
+	z-index: 3;
+	width: calc(100% - 4px);
+	background-color: var(--contact);
+	border-top-right-radius: 0px;
+	height: calc(100vh - 15px - var(--tabheight));
+	top: calc(var(--tabheight) + 15px);
+}
+#gocontact {top: calc(300vh - 39px - (3 * var(--tabheight)))}
+#contact h2 {
+	margin-inline-start: calc(82% - 1rem);
+	background-color: var(--contact);
+}
+
+@media only screen and (max-width: 450px) {
+	:root {
+	/* fonts */
+	--normal: 400;
+	--heavy: 500;
+	}
+	
+}
+
+@media only screen and (max-width: 380px) {
+	#name, nav {
+		font-size: 6vw;
+	}
+	
+	section h2 {
+		font-size: 5vw;
+	}
+	
+	article {
+		font-size: 0.8rem
+	}
+}
+
