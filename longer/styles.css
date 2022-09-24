@@ -100,7 +100,7 @@ nav ul li {
 }
 
 #hero {
-	height: 150vh;
+	height: 100vh;
 	background-color: var(--header);
 	margin: 0 auto;
 }
@@ -111,13 +111,15 @@ nav ul li {
 }
 
 section {
-	height: 150vh;
+	min-height: calc(100vh - var(--tabheight));
+	padding-bottom: var(--tabheight);
 }
 .anchor {position:absolute}
 
 .tab {
 	position: sticky;
 	margin-top: calc(-1 * var(--tabheight));
+	pointer-events: none; 
 }
 .tab h2 {
 	width: 18%;
@@ -128,6 +130,7 @@ section {
 	text-align: center;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
+	pointer-events: auto; 
 }
 .tab::after {
 	content: "";
@@ -190,9 +193,8 @@ a img {
 	background-color: var(--background);
 }
 
-.tab.intro {
+.intro {
 	z-index: 11;
-	position: sticky;
 	top: 3px;
 }
 .intro h2 {
@@ -204,7 +206,6 @@ a img {
 }
 #intro {
 	z-index: 1;
-	width: calc(100% - 8px);
 	background-color: var(--intro);
 }
 #gointro {top: calc(100vh - 10px - var(--tabheight))}
@@ -214,18 +215,22 @@ a img {
 	max-height: 30%;
 }
 
-#stuff {
-	z-index: 2;
-	width: calc(100% - 6px);
-	background-color: var(--stuff);
-	height: calc(100vh - 11px - var(--tabheight));
-	top: calc(var(--tabheight) + 11px);
+.stuff {
+	z-index: 12;
+	top: 6px;
 }
-#gostuff {top: calc(200vh - 22px - (2 * var(--tabheight)))}
-#stuff h2 {
+.stuff h2 {
 	margin-inline-start: calc(64% - 1.5rem);
 	background-color: var(--stuff);
 }
+.stuff::after {
+	background-color: var(--stuff);
+}
+#stuff {
+	z-index: 2;
+	background-color: var(--stuff);
+}
+#gostuff {top: calc(200vh - 22px - (2 * var(--tabheight)))}
 
 .cardcontent {
 	height: calc(100% - 3.5rem);
@@ -241,19 +246,22 @@ a img {
 	margin: 5px;
 }
 
-#contact {
-	z-index: 3;
-	width: calc(100% - 4px);
-	background-color: var(--contact);
-	border-top-right-radius: 0px;
-	height: calc(100vh - 14px - var(--tabheight));
-	top: calc(var(--tabheight) + 14px);
+.contact {
+	z-index: 13;
+	top: 9px;
 }
-#gocontact {top: calc(300vh - 38px - (3 * var(--tabheight)))}
-#contact h2 {
+.contact h2 {
 	margin-inline-start: calc(82% - 1rem);
 	background-color: var(--contact);
 }
+.contact::after {
+	background-color: var(--contact);
+}
+#contact {
+	z-index: 3;
+	background-color: var(--contact);
+}
+#gocontact {top: calc(300vh - 38px - (3 * var(--tabheight)))}
 
 @media only screen and (max-width: 450px) {
 	:root {
