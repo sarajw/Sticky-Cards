@@ -112,6 +112,7 @@ nav ul li {
 
 section {
 	min-height: calc(100vh - 0.5rem - var(--tabheight));
+	min-height: calc(100dvh - 0.5rem - var(--tabheight));
 	padding-bottom: var(--tabheight);
 	scroll-margin-top: calc(var(--tabheight) + 0.5rem);
 }
